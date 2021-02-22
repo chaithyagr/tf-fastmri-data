@@ -42,13 +42,14 @@ def load_data_from_file(fpath, slice_index=-1, select_slices=False, no_kspace=Fa
         if slice_index > -1:
             i_slice = tf.cast(slice_index, tf.int64)
         else:
-            i_slice = tf.random.uniform(
-                shape=(),
-                minval=0,
-                maxval=n_slices,
-                dtype=tf.int64,
-                seed=0,
-            )
+            i_slice = 0
+            # tf.random.uniform(
+            #     shape=(),
+            #     minval=0,
+            #     maxval=n_slices,
+            #     dtype=tf.int64,
+            #     seed=0,
+            # )
         slices = (i_slice, i_slice + 1)
     else:
         slices = (0, n_slices)
